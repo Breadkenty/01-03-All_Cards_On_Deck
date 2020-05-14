@@ -30,15 +30,14 @@ namespace _03_All_Cards_On_Deck
 
             // Empty string to add the combined set of cards that will be used when shuffling.
             var allCards = new List<string>() { };
+            var playerOneHand = new List<string> { };
+            var playerTwoHand = new List<string> { };
 
-            // Combines suits and ranks and all of its combinations. It also adds the combination to the allCards list.
-            for (var rankIndex = 0; rankIndex < rankList.Count; rankIndex++)
+            // // Combines suits and ranks and all of its combinations. It also adds the combination to the allCards list.
+            foreach (var selectedRank in rankList)
             {
-                var selectedRank = rankList[rankIndex];
-
-                for (var suitIndex = 0; suitIndex < suitList.Count; suitIndex++)
+                foreach (var selectedSuit in suitList)
                 {
-                    var selectedSuit = suitList[suitIndex];
                     card = $"{selectedRank} of {selectedSuit}";
                     allCards.Add(card);
                 }
@@ -56,8 +55,30 @@ namespace _03_All_Cards_On_Deck
                 allCards[secondIndex] = shuffle;
             }
 
+            var cardsLeft = allCards.Count;
+
             // Writes the cards you pulled into the console.
-            Console.WriteLine($"You pulled a {allCards[0]} and a {allCards[1]}");
+            playerOneHand.Add(allCards[0]);
+            playerOneHand.Add(allCards[1]);
+            playerTwoHand.Add(allCards[2]);
+            playerTwoHand.Add(allCards[3]);
+            allCards.Remove(allCards[0]);
+            allCards.Remove(allCards[1]);
+            allCards.Remove(allCards[2]);
+            allCards.Remove(allCards[3]);
+
+            Console.WriteLine($"\n\n\nYour hand = {playerOneHand[0]} and {playerOneHand[1]}\n");
+            Console.WriteLine($"Their hand = {playerTwoHand[0]} and {playerTwoHand[1]}\n");
+
+            Console.WriteLine($"There are {allCards.Count} cards left in the deck");
+
+
+
+
+
+
+
+
         }
     }
 }
