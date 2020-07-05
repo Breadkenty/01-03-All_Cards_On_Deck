@@ -6,7 +6,6 @@ namespace _03_All_Cards_On_Deck
 {
     class Program
     {
-
         static void Main(string[] args)
         {
             // make n = 52 since we are dealing with 52 elements
@@ -50,9 +49,9 @@ namespace _03_All_Cards_On_Deck
                 int secondIndex = randomNumber.Next(0, firstIndex);
 
                 // Swaps the firstIndex of the deck with the secondIndex.
-                var shuffle = allCards[firstIndex];
+                var swapCards = allCards[firstIndex];
                 allCards[firstIndex] = allCards[secondIndex];
-                allCards[secondIndex] = shuffle;
+                allCards[secondIndex] = swapCards;
             }
 
             var cardsLeft = allCards.Count;
@@ -71,14 +70,6 @@ namespace _03_All_Cards_On_Deck
             Console.WriteLine($"Their hand = {playerTwoHand[0]} and {playerTwoHand[1]}\n");
 
             Console.WriteLine($"There are {allCards.Count} cards left in the deck");
-
-
-
-
-
-
-
-
         }
     }
 }
